@@ -1,0 +1,19 @@
+// This notes will help developers to understand blockly.
+
+all things I will discover will be noted here.
+
+1 #######
+It seems blockly modification need to be build
+https://developers.google.com/blockly/guides/modify/web/building
+
+2 #######
+the visualization of blockly should be here
+https://groups.google.com/forum/#!topic/blockly/XV2iDNm0qrw
+
+3 #######
+It seems one needs a closure lib for running blockly correctly
+https://github.com/google/closure-library
+
+4 #######
+In order to compress the files one cannot do it over the Eaton network.
+Since it needs to have internet access.

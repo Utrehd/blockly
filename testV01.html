@@ -1,0 +1,98 @@
+
+<html>
+<h1>Mein Blockly Test</h1>
+    <button onclick="showCode();">Show Script</button>
+</html>
+
+<script src="blockly_uncompressed.js"></script>
+<script src="blocks/lcfblockdev.js"></script>
+<script src="blocks/loops.js"></script>
+<script src="blocks/math.js"></script>
+<script src="blocks/text.js"></script>
+<script src="blocks/lists.js"></script>
+<script src="blocks/colour.js"></script>
+<script src="blocks/logic.js"></script>
+<script src="blocks/variables.js"></script>
+<script src="blocks/procedures.js"></script>
+<script src="msg/js/en.js"></script>
+
+<script src="generators/python.js"></script>
+<script src="generators/python/logic.js"></script>
+<script src="generators/python/loops.js"></script>
+<script src="generators/python/math.js"></script>
+<script src="generators/python/text.js"></script>
+<script src="generators/python/lists.js"></script>
+<script src="generators/python/colour.js"></script>
+<script src="generators/python/variables.js"></script>
+<script src="generators/python/procedures.js"></script>
+<script src="generators/python/lcfgens.js"></script>
+
+
+<div id="blocklyDiv" style="height: 800px; width: 800px;"></div>
+
+<!-- <xml id="toolbox" style="display: none" src="MYworkspace/workspace.xml"></xml> -->
+
+<xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="display: ;">
+  <category name="LCF - 4D4D" colour="#5ba55b">
+    <!-- <block type="controls_ifelse"></block> -->
+    <block type="or"></block>
+    <block type="and"></block>
+    <block type="not"></block>
+    <block type="ioinput">
+      <field name="IO">0</field>
+    </block>
+    <block type="iooutput">
+      <field name="NAME">0</field>
+    </block>
+  </category>
+</xml>
+
+<xml xmlns="http://www.w3.org/1999/xhtml" id="workspaceBlocks" style="display:none"></xml>
+
+<script>
+/* TODO: Change toolbox XML ID if necessary. Can export toolbox XML from Workspace Factory. */
+var toolbox = document.getElementById("toolbox");
+
+var options = {
+	toolbox : toolbox,
+	collapse : true,
+	comments : true,
+	disable : true,
+	maxBlocks : Infinity,
+	trashcan : true,
+	horizontalLayout : true,
+	toolboxPosition : 'start',
+	css : true,
+	media : 'https://blockly-demo.appspot.com/static/media/',
+	rtl : true,
+	scrollbars : true,
+	sounds : false,
+	oneBasedIndex : true,
+	grid : {
+		spacing : 30,
+		length : 1,
+		colour : '#888',
+		snap : true
+	}
+};
+
+/* Inject your workspace */
+var workspace = Blockly.inject('blocklyDiv', options);
+
+/* Load Workspace Blocks from XML to workspace. Remove all code below if no blocks to load */
+
+/* TODO: Change workspace blocks XML ID if necessary. Can export workspace blocks XML from Workspace Factory. */
+var workspaceBlocks = document.getElementById("workspaceBlocks");
+
+/* Load blocks to workspace. */
+Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
+
+
+function showCode() {
+  // Generate JavaScript code and display it.
+  Blockly.Python.addReservedWords('code');
+  Blockly.Python.INFINITE_LOOP_TRAP = null;
+  var code = Blockly.Python.workspaceToCode(workspace);
+  alert(code);
+}
+</script>

@@ -1,0 +1,13 @@
+<xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="display: none;">
+  <category name="LCF - 4D4D" colour="#5ba55b">
+    <block type="or"></block>
+    <block type="and"></block>
+    <block type="not"></block>
+    <block type="ioinput">
+      <field name="IO">0</field>
+    </block>
+    <block type="iooutput">
+      <field name="NAME">0</field>
+    </block>
+  </category>
+</xml>

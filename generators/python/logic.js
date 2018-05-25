@@ -106,6 +106,7 @@ Blockly.Python['logic_negate'] = function(block) {
 
 Blockly.Python['logic_boolean'] = function(block) {
   // Boolean values true and false.
+  alert("jui");
   var code = (block.getFieldValue('BOOL') == 'TRUE') ? 'True' : 'False';
   return [code, Blockly.Python.ORDER_ATOMIC];
 };
